@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "agp-ng-class"
+    }
+  },
+  "defaultProject": "agp-ng-class",
+  "cli": {
+    "analytics": "28b270c4-9719-4178-9178-4e1aee3ed3da"
+  }
 }
