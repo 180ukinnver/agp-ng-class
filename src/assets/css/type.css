@@ -1,0 +1,87 @@
+/*Roboto*/
+html{
+    font-family: roboto_regular;
+  }
+  @font-face{
+    font-family: roboto_light;
+    src: url(font/Roboto-Light.ttf);
+  }
+  @font-face{
+    font-family: roboto_regular;
+    src: url(font/Roboto-Regular.ttf);
+  }
+  @font-face{
+    font-family: roboto_medium;
+    src: url(font/Roboto-Medium.ttf);
+  }
+  @font-face{
+    font-family: roboto_bold;
+    src: url(font/Roboto-Bold.ttf);
+  }
+  @font-face{
+    font-family: notnosans_bold;
+    src: url(font/NotoSansKR-Bold.otf);
+  }
+  
+  /*size*/
+  .body{
+    font-size: 14.8px;
+    line-height: 28.6px;
+  }
+  .body_editor{
+    font-size: 16px;
+    line-height: 28.6px;
+  }
+  .caption{
+    font-size: 11.8px !important;
+    line-height: 16.8px;
+  }
+  .small{
+    font-size: 9.6px;
+    letter-spacing: 0px;
+  }
+  .big_title{
+    font-size:44px;
+    line-height: 52px;
+  }
+  .middle_title{
+    font-size: 28px;
+    line-height: 38.2px;
+  }
+  .small_title{
+    font-size: 18px;
+    line-height: 24.6px;
+  }
+  
+  /*weight*/
+  .light{
+    font-family: roboto_light;
+  }
+  .regular{
+    font-family: roboto_regular;
+  }
+  .medium{
+    font-family: roboto_medium;
+  }
+  .bold{
+    font-family: roboto_bold, notnosans_bold;
+  }
+  .textshadow{
+    text-shadow: 0px 0px 16px rgba(0,0,0,0.64);
+  }
+  
+  
+  
+  /*transform*/
+  .capital{
+    text-transform: uppercase;
+  }
+  
+  
+  /*Docs*/
+  .doc>html>body>p{
+    font-size: 14px;
+    line-height: 22.8px;
+    margin-bottom: 32px;
+  }
+  

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>ic_profile_k</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="20" cy="20" r="20"></circle>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Images-/-Avatar-/-catchk">
+            <g id="ic_profile_k">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="↳-Avatar-Image" fill="#F04860" opacity="0.48" xlink:href="#path-1"></use>
+                <polygon id="K" fill="#ffffff" fill-rule="nonzero" opacity="0.58" mask="url(#mask-2)" points="18.8339844 21.9257812 17.4277344 23.46875 17.4277344 27.21875 14 27.21875 14 13 17.4277344 13 17.4277344 19.2695312 18.6191406 17.4628906 21.6855469 13 25.9238281 13 21.1191406 19.2890625 25.9238281 27.21875 21.8613281 27.21875"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

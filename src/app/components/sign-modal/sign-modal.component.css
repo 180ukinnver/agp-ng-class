@@ -1,0 +1,4 @@
+.tab_content {
+    height:calc(100% - 34px);
+    overflow-y:scroll;
+}

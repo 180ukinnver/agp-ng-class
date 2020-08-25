@@ -1,0 +1,59 @@
+.img_editor{
+    width: 80%;
+    margin:0 10%;
+  }
+  
+  .fab{
+    /*position: relative !important;*/
+    top:0px;
+    left:0px;
+    transition: all 0.1s ease-out;
+  }
+  .no_shadow{
+    box-shadow: none !important;
+  }
+  .fab2{
+    top:56px;
+    left:0px;
+  }
+  .fab3{
+    top:112px;
+    left:0px;
+  }
+  #add_btt_container{
+    position: absolute;
+    left:-64px;
+    top: 4px;
+  }
+  .add_content{
+    transform: rotate(0deg);
+    transition: all 0.2s ease-out;
+  }
+  .add_content_on{
+    transform: rotate(45deg);
+  }
+  #delete_editor_mb{
+    display: none;
+  }
+  @media screen and (max-width: 480px) {
+    #add_btt_container{
+      position: absolute;
+      left: 0px;
+      bottom: -8px !important;
+      top: unset;
+    }
+    #delete_editor{
+      display: none;
+      margin-right:0;
+      margin-bottom: 16px;
+    }
+    .fab2{
+      top:0px;
+      left:56px;
+    }
+    #delete_editor_mb{
+      margin-top: 0px;
+      display: flex;
+    }
+  }
+  

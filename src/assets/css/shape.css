@@ -1,0 +1,21 @@
+.round_tiny{
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .round_1x{
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .round_2x{
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .round_3x{
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .round_4x{
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  

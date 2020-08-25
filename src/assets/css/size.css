@@ -1,0 +1,288 @@
+body, html{
+    margin:0px;
+    padding:0px;
+  }
+  p{
+    margin:0;
+  }
+  
+  
+  /*container size*/
+  .col1{
+    width: 100%;
+  }
+  .col2 {
+    width: 50%;
+  }
+  .space_between>.col2{
+    width: calc(50% - 4px);
+  }
+  .col_20{
+    width: 20%;
+  }
+  .col_25{
+    width: 25%;
+  }
+  .col_30{
+    width: 30%;
+  }
+  .col_40{
+    width: 40%;
+  }
+  .col_50{
+    width: 50%;
+  }
+  .col_60{
+    width: 60%;
+  }
+  .col_70{
+    width: 70%;
+  }
+  .col_80{
+    width: 80%;
+  }
+  .col3_pd_1x{
+    width:  calc((100% - 32px)/3);
+  }
+  .col4_pd_1x{
+    width:  calc((100% - 48px)/4);
+  }
+  .col4_2{
+    width: 25%;
+  }
+  .col2_1{
+    width: 50%;
+  }
+  .col3_1{
+    width: 33%;
+  }
+  .height100{
+    height: 100%;
+  }
+  @media screen and (max-width: 480px) {
+    .col2_1{
+      width: 100%;
+    }
+    .col3_1{
+      width: 100%;
+    }
+    .col4_2{
+      width: 50%;
+    }
+  }
+  
+  
+  /*RESPONSIVE CONTAINER*/
+  @media screen and (max-width: 480px) {
+    .col1_mobile{
+      width: 100% !important;
+      margin-left:0;
+      margin-right:0;
+    }
+  }
+  .pd_tiny_hor{
+    box-sizing: border-box;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  .pd_1x{
+    padding:8px;
+  }
+  .pd_1x_hor{
+    box-sizing: border-box;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .pd_2x_hor{
+    box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .pd_2x_ver{
+    box-sizing: border-box;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+  .pd_2x{
+    box-sizing: border-box;
+    padding:16px;
+  }
+  .pd_4x{
+    box-sizing: border-box;
+    padding:32px;
+  }
+  .pd_4x_hor{
+    box-sizing: border-box;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+  .pd_4x_ver{
+    box-sizing: border-box;
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+  .pd_6x_hor{
+    box-sizing: border-box;
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+  .pd_8x_hor{
+    box-sizing: border-box;
+    padding-left: 64px !important;
+    padding-right: 64px !important;
+  }
+  .pd_2x_bottom{
+    box-sizing: border-box;
+    padding-bottom: 16px !important;
+  }
+  .pd_4x_bottom{
+    box-sizing: border-box;
+    padding-bottom: 32px !important;
+  }
+  .pd_8x{
+    box-sizing: border-box;
+    padding:64px;
+  }
+  
+  
+  /*live area*/
+  .live_area{
+    width: 1044px;
+    margin:0 auto;
+  }
+  .live_area_narrow{
+    width: 860px;
+    margin:0 auto;
+  }
+  .live_area_small{
+    width: 680px;
+    margin:0 auto;
+  }
+  @media screen and (max-width: 480px) {
+    .live_area{
+      width: 100%;
+    }
+    .live_area_narrow{
+      width: 100%;
+    }
+    .live_area_small{
+      width: 100%;
+    }
+  }
+  
+  
+  /*margin*/
+  .margin_1x{
+    margin:8px;
+  }
+  .margin_2x{
+    margin:16px;
+  }
+  .margin_3x{
+    margin:24px;
+  }
+  .margin_4x{
+    margin:32px;
+  }
+  
+  .margin_1x_left{
+    margin-left:8px;
+  }
+  .margin_2x_left{
+    margin-left:16px;
+  }
+  .margin_3x_left{
+    margin-left:24px;
+  }
+  .margin_4x_left{
+    margin-left:32px;
+  }
+  .margin_8x_left{
+    margin-left:64px;
+  }
+  
+  .margin_1x_tiny{
+    margin-right:4px;
+  }
+  .margin_1x_right{
+    margin-right:8px;
+  }
+  .margin_2x_right{
+    margin-right:16px;
+  }
+  .margin_3x_right{
+    margin-right:24px;
+  }
+  .margin_4x_right{
+    margin-right:32px;
+  }
+  
+  .margin_1x_bottom{
+    margin-bottom:8px;
+  }
+  .margin_1x_tiny{
+    margin-bottom:4px;
+  }
+  .margin_2x_bottom{
+    margin-bottom:16px;
+  }
+  .margin_3x_bottom{
+    margin-bottom:24px;
+  }
+  .margin_4x_bottom{
+    margin-bottom:32px;
+  }
+  .margin_6x_bottom{
+    margin-bottom:48px;
+  }
+  .margin_8x_bottom{
+    margin-bottom:64px;
+  }
+  .margin_tiny_top{
+    margin-top:4px;
+  }
+  .margin_tiny_right{
+    margin-right:4px;
+  }
+  .margin_1x_top{
+    margin-top:8px;
+  }
+  .margin_2x_top{
+    margin-top:16px;
+  }
+  .margin_3x_top{
+    margin-top:24px;
+  }
+  .margin_4x_top{
+    margin-top:32px;
+  }
+  .margin_6x_top{
+    margin-top:48px;
+  }
+  .margin_8x_top{
+    margin-top:64px;
+  }
+  .margin_10x_top{
+    margin-top:80px;
+  }
+  
+  
+  
+  /*IMG,IC size*/
+  .ic_small{
+    width: 12px;
+    height: 12px;
+  }
+  .ic_24px{
+    width: 24px;
+    height: auto;
+  }
+  .ic_36px{
+    width: 36px;
+    height: 36px;
+  }
+  .ic_48px{
+    width: 48px;
+    height: 48px;
+  }
+  

@@ -3,6 +3,9 @@
     <div>
         <label for="username">Username</label>
         <input type="text" formControlName="username" />
+        <div *ngIf="submitted" style="color: red;">
+            <div>Username is required</div>
+        </div>
     </div>
     <div>
         <label for="password">Password</label>
@@ -14,3 +17,11 @@
         </button>
     </div>
 </form>
+<div *ngIf="checkAuth()">
+    <div>
+        입력된 사용자이름은 <strong>{{ loginUsername }}</strong>
+    </div>
+    <div>
+        입력된 패스워드는 <strong>{{ loginPassword }}</strong>
+    </div>
+</div>

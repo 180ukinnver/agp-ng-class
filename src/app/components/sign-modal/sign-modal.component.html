@@ -1,0 +1,115 @@
+<div class="flex_col col1 height100">
+    <div class="flex_row col1">
+        <div class="tab col2 caption regular" [ngClass]="signType === 'signup' ? 'tab_selected primary400' : 'black_600'"> SIGN UP </div>
+        <div class="tab col2 caption regular" [ngClass]="signType === 'signin' ? 'tab_selected primary400' : 'black_600'"> SIGN IN </div>
+    </div>
+    <div class="flex_col col1 pd_4x tab_content tab_content">
+        <div *ngIf="signType === 'signup'; then signupTemplate else signinTemplate"></div>
+        <ng-template #signupTemplate>
+            <form [formGroup]="signupForm" class="flex_col col1 ng-untouched ng-pristine ng-valid" novalidate>
+                <p class="caption capital medium black_600">
+                    <span class="primary400">*</span>
+                    E-mail
+                </p>
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="email" type="text">
+                <p class="caption capital medium black_600">
+                    <span class="primary400">*</span>
+                    Username
+                </p>
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="username" type="text">
+                <p class="caption capital medium black_600">
+                    <span class="primary400">*</span>
+                    Password
+                </p>
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="password" type="password">
+                <p class="caption capital medium black_600">
+                    <span class="primary400">*</span>
+                    Password confirm
+                </p>
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="passwordConfirm" type="password">
+                <p class="body text_center margin_2x_top margin_1x_bottom medium black_300 pd_2x col1 border_top">Optional</p>
+                <div class="flex_row space_between col1">
+                    <div class="col2">
+                        <p class="caption capital medium black_600">Birth Year</p>
+                        <select class="select caption margin_2x_bottom col1 margin_1x_top ng-untouched ng-pristine ng-valid" name="birthYeaer">
+                            <option>2020</option>
+                        </select>
+                    </div>
+                    <div class="col2">
+                        <p class="caption capital medium black_600">Gender</p>
+                        <select class="select caption margin_2x_bottom col1 margin_1x_top ng-untouched ng-pristine ng-valid" name="gender">
+                            <option value="M"> male </option>
+                            <option value="F"> female </option>
+                        </select>
+                    </div>
+                </div>
+                <p class="caption capital medium black_600">Country . City</p>
+                <div class="flex_row col1 space_between margin_4x_bottom border_bottom pd_2x_bottom margin_1x_top">
+                    <div class="select col2 caption ng-untouched ng-pristine ng-valid" name="country">
+                        <option disabled selected>Select your option</option>
+                    </div>
+                    <div class="select col2 caption ng-untouched ng-pristine ng-valid" name="city"></div>
+                </div>
+                <div class="flex_row align_center margin_1x_bottom space_between col1 caption regular">
+                    <label class="container flex_row caption align_center black_600 margin_1x_left">
+                        <span style="margin-top: 4px;">Agree All</span>
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="flex_row align_center margin_1x_bottom space_between col1 caption regular">
+                    <label class="container flex_row caption align_center black_600 margin_1x_left">
+                        <span style="margin-top: 4px;">Agree terms of service</span>
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <a class="darkblue medium" routerlink="/docs/access" routerlinkactive="true" style="margin-top: 4px; margin-bottom:12px;" target="_blank" href="#/docs/access"> see detail </a>
+                </div>
+                <div class="flex_row align_center margin_1x_bottom space_between col1 caption regular">
+                    <label class="container flex_row caption align_center black_600 margin_1x_left">
+                        <span style="margin-top: 4px;">Agree terms of service</span>
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <a class="darkblue medium" routerlink="/docs/privacy" routerlinkactive="true" style="margin-top: 4px; margin-bottom:12px;" target="_blank" href="#/docs/privacy"> see detail </a>
+                </div>
+                <div class="flex_row align_center margin_1x_bottom space_between col1 caption regular">
+                    <label class="container flex_row caption align_center black_600 margin_1x_left">
+                        <span style="margin-top: 4px;">Location based service terms</span>
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <a class="darkblue medium" routerlink="/docs/location-terms" routerlinkactive="true" style="margin-top: 4px; margin-bottom:12px;" target="_blank" href="#/docs/location-terms"> see detail </a>
+                </div>
+                <div class="button_r body medium primary400_bg white_hightlight caption margin_4x_bottom"> SIGN UP </div>
+                <p class="caption capital medium lightblue text_center margin_8x_bottom" style="cursor: pointer">Send Verifcation Email Again</p>
+            </form>
+        </ng-template>
+        
+        <ng-template #signinTemplate>
+            <form *ngIf="signType === 'signin'" [formGroup]="signinForm" class="flex_col col1 ng-untouched ng-pristine ng-valid" novalidate>
+                <p class="caption capital medium black_600">E-mail</p>
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="email" type="text">
+                <p class="caption capital medium black_600">Password</p>
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="password" type="password">
+                <div class="button_r body medium primary400_bg white_hightlight caption margin_4x_bottom"> SIGN IN </div>
+                <p class="caption capital medium lightblue text_center margin_8x_bottom" style="cursor: pointer">Forgot password?</p>
+            </form>
+        </ng-template>
+        
+        <div class="flex_col flex_center col1 border_top">
+            <p class="body regular black_900 margin_2x_top margin_1x_bottom">or connect with</p>
+            <div class="flex_row justify_center">
+                <a href="https://catchk.net/oauth2/authorization/facebook">
+                    <img class="ic_48px margin_1x_right" src="/assets/img/ic/social/ic_fb_dark.svg">
+                </a>
+                <a href="https://catchk.net/twitter/login">
+                    <img class="ic_48px margin_1x_right" src="/assets/img/ic/social/ic_twitter_dark.svg">
+                </a>
+                <a href="https://catchk.net/oauth2/authorization/google">
+                    <img class="ic_48px" src="/assets/img/ic/social/ic_google_dark.svg">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

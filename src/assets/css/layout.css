@@ -1,0 +1,152 @@
+/*Space definition*/
+.flex_row{
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  .flex_col{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-shrink: 0;
+    /*justify-message_content: flex-start;*/
+  }
+  .flex_col_reverse{
+    display: flex;
+    flex-direction: column-reverse;
+    align-content: flex-start;
+    flex-shrink: 0;
+    /*justify-message_content: flex-start;*/
+  }
+  .flex_row_col{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .flex_col_row{
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (max-width: 480px) {
+    .flex_row_col{
+      display: flex;
+      flex-direction: column;
+    }
+    .flex_col_row{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+  .flex_col>*{
+  
+  }
+  .justify_start{
+    justify-content: flex-start;
+  }
+  .justify_end{
+    justify-content: flex-end;
+  }
+  .justify_center{
+    justify-content: center;
+  }
+  .align_start{
+    align-items: flex-start !important;
+  }
+  .align_end{
+    align-items: flex-end !important;
+  }
+  .space_between{
+    justify-content: space-between !important;
+  }
+  .space_around{
+    justify-content: space-around !important;
+  }
+  .align_center{
+    align-items: center !important;
+    align-content: center !important;
+  }
+  .flex_center{
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+  .text_center{
+    text-align: center;
+  }
+  
+  /*routring*/
+  .routing_area{
+    margin-top: 80px;
+    padding-top: 32px;
+  }
+  .remove_routing_margin{
+    margin-top: -36px;
+  }
+  @media screen and (max-width: 480px) {
+    .routing_area{
+      margin-top: 80px;
+    }
+    .remove_routing_margin{
+      margin-top: -24px;
+    }
+  }
+  /*Grid to List*/
+  /*.grid_to_list{*/
+  
+  /*}*/
+  @media screen and (max-width: 480px) {
+    .grid_to_list{
+      width: 100% !important;
+    }
+  }
+  
+  /*Mobile Column*/
+  .mobile_column{
+  }
+  @media screen and (max-width: 480px) {
+    .mobile_column{
+      width: 100%;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  }
+  
+  /*Top Article Layout*/
+  .top_section{
+    border-top: solid 0.5px #f0f0f0;
+    border-bottom: solid 0.5px #f0f0f0;
+    border-left: solid 0.5px #f0f0f0;
+  }
+  .top_article{
+    border-right: solid 0.5px #f0f0f0;
+  }
+  @media screen and (max-width: 480px) {
+    .top_article{
+      border-left: solid 0px #f0f0f0;
+      border-right: solid 0px #f0f0f0;
+      border-bottom: solid 8px #fafafa;
+    }
+    .top_section{
+      border: solid 0px #f0f0f0;
+    }
+  }
+  
+  
+  /*ONLY PC OR MOBILE*/
+  .only_mobile{
+    display: none;
+  }
+  .only_pc{
+  
+  }
+  @media screen and (max-width: 480px) {
+    .only_mobile{
+      display: initial;
+    }
+    .only_pc{
+      display: none;
+    }
+  }
+  
