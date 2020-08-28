@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../../services/settings.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,7 @@ import { SettingsService } from '../../services/settings.service';
 export class HeaderComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private settings: SettingsService
   ) {
   }
@@ -22,6 +24,10 @@ export class HeaderComponent implements OnInit {
 
   set modalType(modalType: string) {
     this.settings.modalType = modalType;
+  }
+
+  gotoHome(){
+    this.router.navigate(['content']);
   }
 
 }

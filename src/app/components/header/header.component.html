@@ -16,8 +16,8 @@
         <div class="header_menu body bold" tabindex="0"> Article </div>
         <div class="header_menu body bold" tabindex="0"> Request </div>
         <div class="header_menu body bold" tabindex="0"> Dance Cover </div>
-        <div class="header_menu body bold" tabindex="0"> Rept. Crew </div>
-        <div class="header_menu body bold" tabindex="0"> Community </div>
+        <div class="header_menu body bold" tabindex="0" (click)="gotoHome()"> Rept. Crew </div>
+        <div class="header_menu body bold" tabindex="0" [routerLink]="'/community'"> Community </div>
       </div>
       <div class="menu_list align_center">
         <p class="caption black_300 regular col1 text_center margin_1x_bottom only_mobile">please select your language</p>

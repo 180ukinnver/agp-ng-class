@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalTemplateComponent } from './components/modal-template/modal-template.component';
 import { SignModalComponent } from './components/sign-modal/sign-modal.component';
+import { CommunityComponent } from './components/community/community.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SignModalComponent } from './components/sign-modal/sign-modal.component
     ReversePipe,
     LoginComponent,
     ModalTemplateComponent,
-    SignModalComponent
+    SignModalComponent,
+    CommunityComponent
   ],
   imports: [
     BrowserModule,

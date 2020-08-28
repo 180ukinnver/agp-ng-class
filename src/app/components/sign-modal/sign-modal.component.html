@@ -1,7 +1,7 @@
 <div class="flex_col col1 height100">
     <div class="flex_row col1">
-        <div class="tab col2 caption regular" [ngClass]="signType === 'signup' ? 'tab_selected primary400' : 'black_600'"> SIGN UP </div>
-        <div class="tab col2 caption regular" [ngClass]="signType === 'signin' ? 'tab_selected primary400' : 'black_600'"> SIGN IN </div>
+        <div class="tab col2 caption regular" [ngClass]="signType === 'signup' ? 'tab_selected primary400' : 'black_600'" (click)="setSignType('signup')"> SIGN UP </div>
+        <div class="tab col2 caption regular" [ngClass]="signType === 'signin' ? 'tab_selected primary400' : 'black_600'" (click)="setSignType('signin')"> SIGN IN </div>
     </div>
     <div class="flex_col col1 pd_4x tab_content tab_content">
         <div *ngIf="signType === 'signup'; then signupTemplate else signinTemplate"></div>
@@ -45,10 +45,10 @@
                 </div>
                 <p class="caption capital medium black_600">Country . City</p>
                 <div class="flex_row col1 space_between margin_4x_bottom border_bottom pd_2x_bottom margin_1x_top">
-                    <div class="select col2 caption ng-untouched ng-pristine ng-valid" name="country">
+                    <select class="select col2 caption ng-untouched ng-pristine ng-valid" name="country">
                         <option disabled selected>Select your option</option>
-                    </div>
-                    <div class="select col2 caption ng-untouched ng-pristine ng-valid" name="city"></div>
+                    </select>
+                    <select class="select col2 caption ng-untouched ng-pristine ng-valid" name="city"></select>
                 </div>
                 <div class="flex_row align_center margin_1x_bottom space_between col1 caption regular">
                     <label class="container flex_row caption align_center black_600 margin_1x_left">
@@ -63,7 +63,7 @@
                         <input type="checkbox">
                         <span class="checkmark"></span>
                     </label>
-                    <a class="darkblue medium" routerlink="/docs/access" routerlinkactive="true" style="margin-top: 4px; margin-bottom:12px;" target="_blank" href="#/docs/access"> see detail </a>
+                    <a class="darkblue medium" [routerLink]="'/docs/access'" [routerLinkActive]="'true'" style="margin-top: 4px; margin-bottom:12px;" target="_blank" href="#/docs/access"> see detail </a>
                 </div>
                 <div class="flex_row align_center margin_1x_bottom space_between col1 caption regular">
                     <label class="container flex_row caption align_center black_600 margin_1x_left">
@@ -71,7 +71,7 @@
                         <input type="checkbox">
                         <span class="checkmark"></span>
                     </label>
-                    <a class="darkblue medium" routerlink="/docs/privacy" routerlinkactive="true" style="margin-top: 4px; margin-bottom:12px;" target="_blank" href="#/docs/privacy"> see detail </a>
+                    <a class="darkblue medium" [routerLink]="'/docs/privacy'" [routerLinkActive]="'true'" style="margin-top: 4px; margin-bottom:12px;" target="_blank" href="#/docs/privacy"> see detail </a>
                 </div>
                 <div class="flex_row align_center margin_1x_bottom space_between col1 caption regular">
                     <label class="container flex_row caption align_center black_600 margin_1x_left">
@@ -79,7 +79,7 @@
                         <input type="checkbox">
                         <span class="checkmark"></span>
                     </label>
-                    <a class="darkblue medium" routerlink="/docs/location-terms" routerlinkactive="true" style="margin-top: 4px; margin-bottom:12px;" target="_blank" href="#/docs/location-terms"> see detail </a>
+                    <a class="darkblue medium" [routerLink]="'/docs/location-terms'" [routerLinkActive]="'true'" style="margin-top: 4px; margin-bottom:12px;" target="_blank" href="#/docs/location-terms"> see detail </a>
                 </div>
                 <div class="button_r body medium primary400_bg white_hightlight caption margin_4x_bottom"> SIGN UP </div>
                 <p class="caption capital medium lightblue text_center margin_8x_bottom" style="cursor: pointer">Send Verifcation Email Again</p>
@@ -87,12 +87,14 @@
         </ng-template>
         
         <ng-template #signinTemplate>
-            <form *ngIf="signType === 'signin'" [formGroup]="signinForm" class="flex_col col1 ng-untouched ng-pristine ng-valid" novalidate>
+            <form [formGroup]="signinForm" class="flex_col col1 ng-untouched ng-pristine ng-valid" (ngSubmit)="signin()" novalidate>
                 <p class="caption capital medium black_600">E-mail</p>
-                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="email" type="text">
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" formControlName="username" type="text">
+                <div *ngIf="signinForm.controls['username'].hasError('required') && (signinForm.controls['username'].dirty || signinForm.controls['username'].touched)" style="color:red;margin-bottom: 16px;">This field is required</div>
                 <p class="caption capital medium black_600">Password</p>
-                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="password" type="password">
-                <div class="button_r body medium primary400_bg white_hightlight caption margin_4x_bottom"> SIGN IN </div>
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" formControlName="password" type="password">
+                <div *ngIf="signinForm.controls['password'].hasError('required') && (signinForm.controls['password'].dirty || signinForm.controls['password'].touched)" style="color:red;margin-bottom: 16px;">This field is required</div>
+                <input class="button_r body medium primary400_bg white_hightlight caption margin_4x_bottom" type="submit" value="SIGN IN" style="border: none;"> 
                 <p class="caption capital medium lightblue text_center margin_8x_bottom" style="cursor: pointer">Forgot password?</p>
             </form>
         </ng-template>
