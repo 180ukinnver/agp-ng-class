@@ -6,27 +6,32 @@
     <div class="flex_col col1 pd_4x tab_content tab_content">
         <div *ngIf="signType === 'signup'; then signupTemplate else signinTemplate"></div>
         <ng-template #signupTemplate>
-            <form [formGroup]="signupForm" class="flex_col col1 ng-untouched ng-pristine ng-valid" novalidate>
+            <form [formGroup]="signupForm" class="flex_col col1 ng-untouched ng-pristine ng-valid" (ngSubmit)="signup()" novalidate>
                 <p class="caption capital medium black_600">
                     <span class="primary400">*</span>
                     E-mail
                 </p>
-                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="email" type="text">
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" formControlName="email" type="text">
+                <div *ngIf="signupForm.controls['email'].hasError('required') && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)" style="color:red;margin-bottom: 16px;">This field is required</div>
+                <div *ngIf="signupForm.controls['email'].hasError('email') && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)" style="color:red;margin-bottom: 16px;">This field must be a valid email address</div>
                 <p class="caption capital medium black_600">
                     <span class="primary400">*</span>
                     Username
                 </p>
-                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="username" type="text">
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" formControlName="username" type="text">
+                <div *ngIf="signupForm.controls['username'].hasError('required') && (signupForm.controls['username'].dirty || signupForm.controls['username'].touched)" style="color:red;margin-bottom: 16px;">This field is required</div>
                 <p class="caption capital medium black_600">
                     <span class="primary400">*</span>
                     Password
                 </p>
-                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="password" type="password">
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" formControlName="password" type="password">
+                <div *ngIf="signupForm.controls['password'].hasError('required') && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)" style="color:red;margin-bottom: 16px;">This field is required</div>
                 <p class="caption capital medium black_600">
                     <span class="primary400">*</span>
                     Password confirm
                 </p>
-                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" name="passwordConfirm" type="password">
+                <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" formControlName="passwordConfirm" type="password">
+                <div *ngIf="signupForm.controls['passwordConfirm'].hasError('required') && (signupForm.controls['passwordConfirm'].dirty || signupForm.controls['passwordConfirm'].touched)" style="color:red;margin-bottom: 16px;">This field is required</div>
                 <p class="body text_center margin_2x_top margin_1x_bottom medium black_300 pd_2x col1 border_top">Optional</p>
                 <div class="flex_row space_between col1">
                     <div class="col2">
@@ -81,7 +86,8 @@
                     </label>
                     <a class="darkblue medium" [routerLink]="'/docs/location-terms'" [routerLinkActive]="'true'" style="margin-top: 4px; margin-bottom:12px;" target="_blank" href="#/docs/location-terms"> see detail </a>
                 </div>
-                <div class="button_r body medium primary400_bg white_hightlight caption margin_4x_bottom"> SIGN UP </div>
+                <input class="button_r body medium primary400_bg white_hightlight caption margin_4x_bottom" type="submit" value="SIGN UP" style="border: none;"
+                    [disabled]="signupForm.controls['username'].hasError('required') || signupForm.controls['password'].hasError('required')"> 
                 <p class="caption capital medium lightblue text_center margin_8x_bottom" style="cursor: pointer">Send Verifcation Email Again</p>
             </form>
         </ng-template>
@@ -94,7 +100,8 @@
                 <p class="caption capital medium black_600">Password</p>
                 <input class="textfield body regular black_900 margin_1x_top margin_2x_bottom ng-untouched ng-pristine ng-valid" formControlName="password" type="password">
                 <div *ngIf="signinForm.controls['password'].hasError('required') && (signinForm.controls['password'].dirty || signinForm.controls['password'].touched)" style="color:red;margin-bottom: 16px;">This field is required</div>
-                <input class="button_r body medium primary400_bg white_hightlight caption margin_4x_bottom" type="submit" value="SIGN IN" style="border: none;"> 
+                <input class="button_r body medium primary400_bg white_hightlight caption margin_4x_bottom" type="submit" value="SIGN IN" style="border: none;"
+                    [disabled]="signinForm.controls['username'].hasError('required') || signinForm.controls['password'].hasError('required')"> 
                 <p class="caption capital medium lightblue text_center margin_8x_bottom" style="cursor: pointer">Forgot password?</p>
             </form>
         </ng-template>

@@ -2,7 +2,12 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
         <label for="username">Username</label>
-        <input type="text" formControlName="username" />
+        <input type="text" formControlName="username" #username pattern="[a-zA-z0-9]{4,10}" required />
+        <p>{{ loginForm.controls["username"].errors | json }}</p>
+        <p>{{ loginForm.controls["username"].invalid }}</p>
+        <p>{{ loginForm.controls["username"].dirty }}</p>
+        <p>{{ loginForm.controls["username"].touched }}</p>
+        <p>{{ loginForm.controls["username"].pristine }}</p>
         <div *ngIf="submitted" style="color: red;">
             <div>Username is required</div>
         </div>
