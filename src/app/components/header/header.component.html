@@ -12,11 +12,11 @@
     </div>
     <div class="slide_menu align_center space_between col1">
       <div class="menu_list align_center">
-        <img id="header_logo" src="assets/img/logo_dark.svg" tabindex="0">
+        <img id="header_logo" src="assets/img/logo_dark.svg" tabindex="0" [routerLink]="'/'">
         <div class="header_menu body bold" tabindex="0"> Article </div>
         <div class="header_menu body bold" tabindex="0"> Request </div>
         <div class="header_menu body bold" tabindex="0"> Dance Cover </div>
-        <div class="header_menu body bold" tabindex="0" (click)="gotoHome()"> Rept. Crew </div>
+        <div class="header_menu body bold" tabindex="0"> Rept. Crew </div>
         <div class="header_menu body bold" tabindex="0" [routerLink]="'/community'"> Community </div>
       </div>
       <div class="menu_list align_center">
@@ -26,12 +26,20 @@
           <option value="ko"> Kor </option>
         </select>
         <div class="menu_list align_center" id="signup_menu">
-          <div class="header_menu">
-            <div class="button_r regular capital caption primary400_bg white_hightlight" (click)="modalType='signup'"> Sign up </div>
-          </div>
-          <div class="header_menu caption">
-            <div class="button_r regular capital caption light_border" (click)="modalType='signin'"> Sign in </div>
-          </div>
+          <div *ngIf="signinService.isSignin; then logoutTemplate else signinTemplate"></div>
+          <ng-template #signinTemplate>
+            <div class="header_menu">
+              <div class="button_r regular capital caption primary400_bg white_hightlight" (click)="modalType='signup'"> Sign up </div>
+            </div>
+            <div class="header_menu caption">
+              <div class="button_r regular capital caption light_border" (click)="modalType='signin'"> Sign in </div>
+            </div>
+          </ng-template>
+          <ng-template #logoutTemplate>
+            <div class="header_menu">
+              <div class="button_r regular capital caption light_border" (click)="logout()"> Logout </div>
+            </div>
+          </ng-template>
         </div>
       </div>
     </div>

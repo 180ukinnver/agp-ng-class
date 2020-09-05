@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="12px" viewBox="0 0 18 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>ic_vew_white</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8.25,3.8125 C7.00735931,3.8125 6,4.81985931 6,6.0625 C6,7.30514069 7.00735931,8.3125 8.25,8.3125 C9.49264069,8.3125 10.5,7.30514069 10.5,6.0625 C10.5,4.81985931 9.49264069,3.8125 8.25,3.8125 L8.25,3.8125 Z M8.25,9.8125 C6.17893219,9.8125 4.5,8.13356781 4.5,6.0625 C4.5,3.99143219 6.17893219,2.3125 8.25,2.3125 C10.3210678,2.3125 12,3.99143219 12,6.0625 C12,8.13356781 10.3210678,9.8125 8.25,9.8125 L8.25,9.8125 Z M8.25,0.4375 C4.5,0.4375 1.2975,2.77 0,6.0625 C1.2975,9.355 4.5,11.6875 8.25,11.6875 C12,11.6875 15.2025,9.355 16.5,6.0625 C15.2025,2.77 12,0.4375 8.25,0.4375 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Component-/-Card-/-Full-/-News-/-Wire-Frame-/-PC" transform="translate(-272.000000, -288.000000)">
+            <g id="Group-4" transform="translate(16.000000, 276.000000)">
+                <g id="Group-5" transform="translate(256.000000, 9.000000)">
+                    <g id="Icon-/-view">
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Active" transform="translate(0.750000, 3.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Mask" fill-rule="nonzero"></g>
+                            <g id="✱-/-Color-/-Icons-/-White-/-Active" mask="url(#mask-2)" fill="#FFFFFF">
+                                <g transform="translate(0.000000, -3.000000)" id="Rectangle-13">
+                                    <rect x="0" y="0" width="17" height="17"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

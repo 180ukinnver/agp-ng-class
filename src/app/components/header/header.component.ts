@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../../services/settings.service';
 import { Router } from '@angular/router';
+import { SigninService } from 'src/app/services/signin.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private settings: SettingsService
+    private settings: SettingsService,
+    public signinService: SigninService
   ) {
   }
 
@@ -26,8 +28,8 @@ export class HeaderComponent implements OnInit {
     this.settings.modalType = modalType;
   }
 
-  gotoHome(){
-    this.router.navigate(['content']);
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/']);
   }
-
 }

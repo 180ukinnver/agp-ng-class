@@ -1,1 +1,34 @@
-<p>community works!</p>
+<div class="live_area" style="display: flex;">
+    <div class="flex_row_col col1">
+        <div class="flex_col col_30 col1_mobile mobile_column">
+            <ul class="board_list" *ngIf="apis.community !== undefined">
+                <li *ngFor="let key of apis.community.keys()" [routerLink]="'/community/list/'+key.id" (click)="apis.getCommunityById(key.id)">{{ key.title }}</li>
+            </ul>
+        </div>
+        <div *ngIf="isList; then routerTemplate else summaryTemplate"></div>
+        <ng-template #routerTemplate>
+            <div class="flex_col col_70 col1_mobile mobile_column">
+                <router-outlet></router-outlet>
+            </div>
+        </ng-template>
+        <ng-template #summaryTemplate>
+            <div class="flex_col col_70 col1_mobile mobile_column">
+                <div class="col1 flex_row_col margin_8x_bottom" *ngIf="apis.community !== undefined">
+                    <div class="flex_col col_50" *ngFor="let key of apis.community.keys(); let idx=index;">
+                        <div class="col2_pd_1x grid_to_list margin_2x_bottom" [ngClass]="{'margin_1x_right': (idx%2)===0, 'margin_1x_left': (idx%2)===1}">
+                            <div class="col1 flex_col light_border card">
+                                <h3 class="title bold pd_2x_hor">{{ key.title }}</h3>
+                                <ul class="latest_article">
+                                    <li *ngFor="let item of apis.community.get(key)">
+                                        <span class="title bold small_title pd_2x_hor margin_1x_top">{{ item.idx }}</span>
+                                        <span class="title bold small_title pd_2x_hor margin_1x_top">{{ item.title }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

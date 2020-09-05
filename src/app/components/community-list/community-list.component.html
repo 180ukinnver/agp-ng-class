@@ -1,0 +1,11 @@
+<div *ngIf="apis.community !== undefined">
+    <h3 class="title bold pd_2x_hor">{{ apis.activatedCommunityName }}</h3>
+    <ul class="community_list">
+        <li *ngFor="let article of apis.activatedCommunity" 
+            [routerLink]="'/community/view/'+article.idx" (click)="apis.getCommunityArticle(article.idx)">
+            <div style="padding: 10px;">{{ article.idx }}</div>
+            <div style="padding: 10px;">{{ article.title }}</div>
+            <div style="padding: 10px; margin-left: auto;">10</div>
+        </li>
+    </ul>
+</div>

@@ -13,13 +13,15 @@ export class SigninService {
   ) { }
 
   signin(form): Observable<any> {
-    return this.httpClient.post<any>('https://catchk.net/api/login', form).pipe(catchError(this.handleError));
+    return this.httpClient.post<any>('http://172.30.1.6:3000/api/signin', form).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse): ObservableInput<any> {
-    console.error(error.error)
-    return throwError({
-      msg: error.error
-    });
+    return throwError(error);
+  }
+
+  get isSignin(): boolean {
+    const user = localStorage.getItem('user');
+    return (user !== null) ? true : false;
   }
 }

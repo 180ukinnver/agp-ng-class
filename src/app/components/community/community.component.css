@@ -1,0 +1,25 @@
+.board_list {
+    list-style: none; 
+    padding-left: 0;
+}
+
+.board_list > li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.latest_article {
+    list-style: none; 
+    padding-left: 0;
+}
+
+.latest_article > li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.latest_article > li:hover {
+    color: #ffffff;
+    background-color: rgb(89, 102, 128);
+}

@@ -1,48 +1,31 @@
-import { Component, OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+export class ContentComponent implements OnInit {
 
-  title: string;
-  today: Date = new Date();
-
-  constructor() { 
-    this.title = 'agp-ng-class';
-  }
-
-  ngOnChanges(changes): void {
-    console.log('ngOnChanges', changes);
-  } 
+  constructor(
+    public apis: ApiService
+  ) { }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
+    this.apis.getHomeArticle();
+    this.apis.getAllArticle();
   }
 
-  ngDoCheck(): void {
-    console.log('ngDoCheck');
-  }
-  
-  ngAfterContentInit(): void {
-    console.log('ngAfterContentInit');
-  }
-  
-  ngAfterContentChecked(): void {
-    console.log('ngAfterContentChecked');
-  }
-  
-  ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
-  }
-  
-  ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked');
-  }
-  
-  ngOnDestroy(): void {
-    console.log('ngOnDestroy');
-  }
+  // getImageSourceByCoverId(id: number): any {
+  //   let url: string = 'http://d1y91tvk7due2q.cloudfront.net/';
+  //   if (this.homeArticleList) {
+  //     const filtered = this.homeArticleList.filter(element => element.setCoverId === id);
+  //     url += filtered[0].content.thumbnail;
+  //   }
+  //   if (url.includes(".jpg") || url.includes(".png"))
+  //     return url;
+  //   else 
+  //     return '';
+  // }
 }

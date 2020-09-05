@@ -1,0 +1,16 @@
+.community_list {
+    list-style: none; 
+    width: 100%; 
+    padding-left: 0;
+}
+
+.community_list > li {
+    display: flex; 
+    border-bottom: 1px solid #efefef; 
+    cursor: pointer;
+}
+
+.community_list > li:hover {
+    color: #ffffff;
+    background-color: rgb(89, 102, 128);
+}

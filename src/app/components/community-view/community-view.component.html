@@ -1,0 +1,22 @@
+<div class="flex_col col1_mobile mobile_colomn">
+    <p class="big_title bold black_900">{{ apis.viewArticle.title }}</p>
+    <div *ngFor="let line of apis.viewArticle.text" class="flex_col col1_mobile mobile_column">
+        <div *ngIf="line.indexOf('img:') > -1; then imageTemplate else textTemplate"></div>
+        <ng-template #imageTemplate>
+            <img src="line.split('img:')[1]">
+        </ng-template>
+        <ng-template #textTemplate>
+            <p>{{ line }}</p>
+        </ng-template>
+    </div>
+
+    <div class="flex_col col1 justify_end margin_3x_bottom">
+        <div class="col1">
+            <div *ngFor="let reply of apis.viewArticle.reply" class="comment_area pd_1x caption regular black_600">{{ reply }}</div>
+            <div class="comment_area pd_1x caption regular black_600">
+                <textarea class="community_reply"></textarea>
+                <button class="community_reply_apply">댓글달기</button>
+            </div>
+        </div>
+    </div>
+</div>

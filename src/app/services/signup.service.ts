@@ -13,7 +13,7 @@ export class SignupService {
   ) { }
 
   signup(form): Observable<any> {
-    return this.httpClient.post<any>('https://catchk.net/api/user/join', form).pipe(catchError(this.handleError));
+    return this.httpClient.post<any>('http://172.30.1.6:3000/api/signup', form).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse): ObservableInput<any> {

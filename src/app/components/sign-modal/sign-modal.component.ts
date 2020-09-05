@@ -63,8 +63,13 @@ export class SignModalComponent implements OnInit {
       username: f.username.value,
       password: f.password.value
     }).subscribe(
-      success => console.log(success),
-      error => console.error(error)
+      success => {
+        localStorage.setItem('user', success.username);
+        this.settings.modalType = 'none';
+      },
+      error => {
+        alert(`[${error.status}] ${error.statusText}`);
+      }
     );
   }
 

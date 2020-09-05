@@ -1,0 +1,11 @@
+.community_reply {
+    border: none;
+    width: 88%;
+    height: 50px;
+    margin: 10px;
+}
+
+.community_reply_apply {
+    position: absolute;
+    margin-top: 10px;
+}
