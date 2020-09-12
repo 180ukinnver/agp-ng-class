@@ -10,9 +10,9 @@ export class ApiService {
 
   private _homeArticle: Array<any>;
   private _allArticle: Array<any>;
-  private _community: Map<any, Array<any>>;
+  private _community: any;
   private _activatedCommunityId: string;
-  private _activatedCommunity: Array<any>;
+  private _activatedCommunity: any;
   private _viewArticle: any;
 
   constructor(
@@ -47,21 +47,13 @@ export class ApiService {
     return this._allArticle;
   }
 
-  public getCommunity() {
-    this.http.get('http://172.30.1.6:3000/api/community')
-      .subscribe(
-        (success: Map<any, Array<any>>) => this._community = new Map(success),
-        error => this.handleError(error)
-      );
+  async getCommunity() {
+    this._community = await this.http.get('http://127.0.0.1:3000/api/community').toPromise();
   }
 
-  public getCommunityById(id) {
+  async getCommunityById(id) {
     this._activatedCommunityId = id;
-    this.http.get(`http://172.30.1.6:3000/api/community/${id}`)
-      .subscribe(
-        (success: Array<any>) => this._activatedCommunity = success,
-        error => this.handleError(error)
-      );
+    this._activatedCommunity = await this.http.get(`http://127.0.0.1:3000/api/community/${id}`).toPromise();
   }
 
   get community(): Map<any, Array<any>> {
@@ -77,16 +69,33 @@ export class ApiService {
     return '';
   }
 
-  get activatedCommunity(): Array<any> {
+  get activatedCommunityId(): string {
+    return this._activatedCommunityId;
+  }
+
+  get activatedCommunity(): any {
     return this._activatedCommunity;
   }
 
   public getCommunityArticle(idx) {
-    const filtered = this._activatedCommunity.filter(article => article.idx === idx);
-    this._viewArticle = filtered[0];
+    const filtered = this._activatedCommunity.list.filter(article => ''+article.idx === idx);
+    return filtered[0];
+  }
+
+  async addReply(id, reply: string) {
+    return await this.http.post(`http://127.0.0.1:3000/api/community/${this._activatedCommunityId}/view/${id}/reply`, {add:reply}).toPromise();
   }
 
   get viewArticle(): any {
     return this._viewArticle;
+  }
+
+  async uploadArticle(title: string, username: string, content: string) {
+    const payload = {
+      title: title,
+      author: username,
+      text: content
+    }
+    return await this.http.post(`http://127.0.0.1:3000/api/community/${this._activatedCommunityId}`, payload).toPromise();
   }
 }

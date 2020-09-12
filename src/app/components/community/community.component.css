@@ -4,13 +4,20 @@
 }
 
 .board_list > li {
-    padding: 10px;
+    padding: 16px;
     cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.latest_article_h {
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .latest_article {
     list-style: none; 
     padding-left: 0;
+    margin-top: 0;
 }
 
 .latest_article > li {

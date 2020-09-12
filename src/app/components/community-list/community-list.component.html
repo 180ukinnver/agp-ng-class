@@ -1,11 +1,25 @@
-<div *ngIf="apis.community !== undefined">
-    <h3 class="title bold pd_2x_hor">{{ apis.activatedCommunityName }}</h3>
-    <ul class="community_list">
-        <li *ngFor="let article of apis.activatedCommunity" 
+<div>
+    <h3 class="title bold pd_2x_hor">{{ communityTitle }}</h3>
+    <div style="margin-bottom: 16px; width: 730px; display: flex;">
+        <button [routerLink]="'/community/write'" style="margin-left: auto;">글작성</button>
+    </div>
+    <div class="community_list_h">
+        <div style="width: 10%;">번호</div>
+        <div style="width: 40%;">제목</div>
+        <div style="width: 15%;">글쓴이</div>
+        <div style="width: 15%;">등록일</div>
+        <div style="width: 10%;">추천</div>
+        <div style="width: 10%;">조회</div>
+    </div>
+    <ul class="community_list" *ngIf="articles">
+        <li *ngFor="let article of articles" 
             [routerLink]="'/community/view/'+article.idx" (click)="apis.getCommunityArticle(article.idx)">
-            <div style="padding: 10px;">{{ article.idx }}</div>
-            <div style="padding: 10px;">{{ article.title }}</div>
-            <div style="padding: 10px; margin-left: auto;">10</div>
+            <div style="width: 10%;">{{ article.idx }}</div>
+            <div style="width: 40%; text-align: left;">{{ article.title }}</div>
+            <div style="width: 15%;">{{ article.author }}</div>
+            <div style="width: 15%;">{{ article.date | reverse }}</div>
+            <div style="width: 10%;">{{ article.like }}</div>
+            <div style="width: 10%;">{{ article.view }}</div>
         </li>
     </ul>
 </div>

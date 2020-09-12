@@ -31,9 +31,19 @@
               "src/assets/css/layout.css",
               "src/assets/css/shape.css",
               "src/assets/css/size.css",
-              "src/assets/css/type.css"
+              "src/assets/css/type.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/summernote/dist/summernote.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/bootstrap/js/dist/util.js",
+              "node_modules/bootstrap/js/dist/modal.js",
+              "node_modules/bootstrap/js/dist/dropdown.js",
+              "node_modules/bootstrap/js/dist/tooltip.js",
+              "node_modules/summernote/dist/summernote.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -69,7 +79,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "agp-ng-class:build"
+            "browserTarget": "agp-ng-class:build",
+            "port": 3000,
+            "host": "0.0.0.0"
           },
           "configurations": {
             "production": {

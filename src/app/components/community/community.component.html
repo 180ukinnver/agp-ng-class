@@ -1,9 +1,22 @@
 <div class="live_area" style="display: flex;">
     <div class="flex_row_col col1">
         <div class="flex_col col_30 col1_mobile mobile_column">
-            <ul class="board_list" *ngIf="apis.community !== undefined">
-                <li *ngFor="let key of apis.community.keys()" [routerLink]="'/community/list/'+key.id" (click)="apis.getCommunityById(key.id)">{{ key.title }}</li>
-            </ul>
+            <div *ngIf="signinSvc.isAdmin" 
+                class="light_border margin_2x_right margin_2x_bottom pd_2x_bottom">
+                <h4 class="margin_1x_bottom pd_2x_hor">관리자 메뉴</h4>
+                <div class="margin_1x_bottom pd_2x_hor">
+                    <input class="col1 pd_1x" type="text" [(ngModel)]="newBoardName">
+                </div>
+                <div class="flex_col_reverse pd_2x_hor">
+                    <button class="button pd_1x">게시판 추가</button>
+                </div>
+            </div>
+            <div class="light_border margin_2x_right">
+                <h4 class="margin_1x_bottom pd_2x_hor" [routerLink]="'/community'">게시판</h4>
+                <ul class="board_list" *ngIf="community">
+                    <li *ngFor="let item of community" [routerLink]="'/community/list/'+item[0].id">{{ item[0].title }}</li>
+                </ul>
+            </div>
         </div>
         <div *ngIf="isList; then routerTemplate else summaryTemplate"></div>
         <ng-template #routerTemplate>
@@ -13,15 +26,17 @@
         </ng-template>
         <ng-template #summaryTemplate>
             <div class="flex_col col_70 col1_mobile mobile_column">
-                <div class="col1 flex_row_col margin_8x_bottom" *ngIf="apis.community !== undefined">
-                    <div class="flex_col col_50" *ngFor="let key of apis.community.keys(); let idx=index;">
+                <div class="col1 flex_row_col margin_8x_bottom" *ngIf="community">
+                    <div class="flex_col col_50" *ngFor="let item of community; let idx=index;">
                         <div class="col2_pd_1x grid_to_list margin_2x_bottom" [ngClass]="{'margin_1x_right': (idx%2)===0, 'margin_1x_left': (idx%2)===1}">
                             <div class="col1 flex_col light_border card">
-                                <h3 class="title bold pd_2x_hor">{{ key.title }}</h3>
+                                <h4 class="title bold pd_2x_hor latest_article_h"
+                                    [routerLink]="'/community/list/'+item[0].id" (click)="apis.getCommunityById(item[0].id)"
+                                >{{ item[0].title }}</h4>
                                 <ul class="latest_article">
-                                    <li *ngFor="let item of apis.community.get(key)">
-                                        <span class="title bold small_title pd_2x_hor margin_1x_top">{{ item.idx }}</span>
-                                        <span class="title bold small_title pd_2x_hor margin_1x_top">{{ item.title }}</span>
+                                    <li *ngFor="let article of item[1]" (click)="getCommunityById(item[0].id, article.idx)">
+                                        <span class="title small_title pd_2x_hor margin_1x_top">{{ article.like }}</span>
+                                        <span class="title small_title pd_2x_hor margin_1x_top">{{ article.title }}</span>
                                     </li>
                                 </ul>
                             </div>

@@ -64,7 +64,7 @@ export class SignModalComponent implements OnInit {
       password: f.password.value
     }).subscribe(
       success => {
-        localStorage.setItem('user', success.username);
+        localStorage.setItem('user', JSON.stringify(success));
         this.settings.modalType = 'none';
       },
       error => {

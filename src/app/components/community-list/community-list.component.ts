@@ -9,12 +9,18 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class CommunityListComponent implements OnInit {
 
+  communityTitle: string;
+  articles: Array<any>;
 
   constructor(
+    private route: ActivatedRoute,
     public apis: ApiService
   ) { }
 
-  ngOnInit(): void {
-    
+  async ngOnInit() {
+    const _id = this.route.snapshot.params.id;
+    await this.apis.getCommunityById(_id);
+    this.communityTitle = this.apis.activatedCommunity.title;
+    this.articles = this.apis.activatedCommunity.list;
   }
 }

@@ -1,21 +1,34 @@
 <div class="flex_col col1_mobile mobile_colomn">
-    <p class="big_title bold black_900">{{ apis.viewArticle.title }}</p>
-    <div *ngFor="let line of apis.viewArticle.text" class="flex_col col1_mobile mobile_column">
+    <h3 class="title bold pd_2x_hor">게시판 > {{ communityTitle }}</h3>
+    <div class="flex_row_col col1 community_article_h">
+        <h3 class="col_60 title bold pd_2x_hor" style="margin: 0px;">{{ article.title }}</h3>
+        <div class="col_40">
+            <span>조회 {{ article.view }}</span> |
+            <span>추천 {{ article.like }}</span> |
+            <span>작성일 {{ article.date }}</span>
+        </div>
+    </div>
+    <div>
+
+    </div>
+    <!-- <div *ngFor="let line of article.text" class="flex_col col1_mobile mobile_column community_article">
         <div *ngIf="line.indexOf('img:') > -1; then imageTemplate else textTemplate"></div>
         <ng-template #imageTemplate>
-            <img src="line.split('img:')[1]">
+            <img [src]="getImageSrc(line)">
         </ng-template>
         <ng-template #textTemplate>
             <p>{{ line }}</p>
         </ng-template>
-    </div>
+    </div> -->
+
+    <div [innerHTML]="article.text"></div>
 
     <div class="flex_col col1 justify_end margin_3x_bottom">
         <div class="col1">
-            <div *ngFor="let reply of apis.viewArticle.reply" class="comment_area pd_1x caption regular black_600">{{ reply }}</div>
+            <div *ngFor="let reply of article.reply" class="comment_area pd_1x caption regular black_600">{{ reply }}</div>
             <div class="comment_area pd_1x caption regular black_600">
-                <textarea class="community_reply"></textarea>
-                <button class="community_reply_apply">댓글달기</button>
+                <textarea class="community_reply" [(ngModel)]="newReply"></textarea>
+                <button class="community_reply_apply" (click)="addReply()">댓글달기</button>
             </div>
         </div>
     </div>

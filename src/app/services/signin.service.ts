@@ -13,7 +13,7 @@ export class SigninService {
   ) { }
 
   signin(form): Observable<any> {
-    return this.httpClient.post<any>('http://172.30.1.6:3000/api/signin', form).pipe(catchError(this.handleError));
+    return this.httpClient.post<any>('http://127.0.0.1:3000/api/signin', form).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse): ObservableInput<any> {
@@ -23,5 +23,14 @@ export class SigninService {
   get isSignin(): boolean {
     const user = localStorage.getItem('user');
     return (user !== null) ? true : false;
+  }
+
+  get isAdmin(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return (user.role === 'admin') ? true : false;
+  }
+
+  get myInfo(): any {
+    return JSON.parse(localStorage.getItem('user'));
   }
 }

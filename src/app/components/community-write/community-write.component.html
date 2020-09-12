@@ -1,1 +1,8 @@
-<p>community-write works!</p>
+<div class="flex_col col1_mobile mobile_colomn">
+    <h3 class="title bold pd_2x_hor">게시판 > {{ communityTitle }}</h3>
+    <input type="text" [(ngModel)]="title">
+    <div id="summernote" class="summernote"></div>
+    <div style="margin-bottom: 16px; width: 730px; display: flex;">
+        <button (click)="uploadArticle()" style="margin-left: auto;">올리기</button>
+    </div>
+</div>
